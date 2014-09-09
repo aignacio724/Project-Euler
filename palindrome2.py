@@ -1,11 +1,12 @@
 #!/usr/bin/python
 
 ''' This is a small assignment to solve
-    Problem 3 on ProjectEuler.net.
-    Largest Prime Factor
+    Problem 4 on ProjectEuler.net.
+    Largest Palindrome Product
     -------------------
-    The prime factors of 13195 are 5, 7, 13 and 29.
-    What is the largest prime factor of the number 600851475143 ?
+    A palindromic number reads the same both ways. The largest palindrome made 
+    from the product of two 2-digit numbers is 9009 = 91 * 99
+    Find the largest palindrome made from the product of two 3-digit numbers
 '''
 
 from math import ceil,floor,sqrt
@@ -15,14 +16,17 @@ from math import ceil,floor,sqrt
     and using Fermat's Factorization Algorithm
     Try to find the largest prime factors of the given
     number N '''
+
 # Fermat's Method:
 # N = a^2 - b^2
 # N should be an odd number
 def FermatFactor(N):
     a = ceil(sqrt(N)) # Get the Square root of N 
-                                 # Rounded up to the next integer
+                      # Rounded up to the next integer
     b = a*a - N
-    c = floor(sqrt(b))
+    c = floor(sqrt(b)) # I could type cast to int, but that adds more time to 
+                       # the runtime of program
+
     # Continue to check each value of b
     # while b is not square
     while c*c != b: 
@@ -34,8 +38,6 @@ def FermatFactor(N):
     return (a - sqrt(b), a + sqrt(b)) 
 
 def main():
-    #val = float(raw_input("Enter a number to factorize "))
-    #print "%d %d\n" % FermatFactor(val)
 
     curNum = 997 # Maximum number is 999 * 999 = 998001
                  # largest palidrome that is under 998001 
@@ -55,3 +57,13 @@ def main():
 
 if __name__== "__main__":
     main()
+'''
+Largest Palindrome: 906609 Factors: 913 993
+
+Iterations: 92
+
+
+real    0m0.189s
+user    0m0.188s
+sys 0m0.000s
+'''
