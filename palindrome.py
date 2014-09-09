@@ -1,4 +1,14 @@
 #!/usr/bin/python
+''' Brute force version
+    Largest: 906609 993 913
+
+    total iterations: 629
+
+
+    real    0m0.203s
+    user    0m0.194s
+    sys     0m0.008s
+'''
 
 def main():
     result = 0
