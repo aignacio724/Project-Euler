@@ -46,8 +46,8 @@ def isPrime(num):
 
 def main():
         val = float(raw_input("Enter a number to factorize "))
-        #print "%d %d\n" % FermatFactor(val)
-        FermatFactor(val)
+        print "%d %d\n" % FermatFactor(val)
+        #FermatFactor(val)
 
 if __name__== "__main__":
     main()
