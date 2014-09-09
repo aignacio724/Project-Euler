@@ -18,6 +18,10 @@ from math import ceil,floor,sqrt
 # N = a^2 - b^2
 # N should be an odd number
 def FermatFactor(N):
+    #print N
+    #if N == 1:
+    #    return N
+    
     a = ceil(sqrt(N)) # Get the Square root of N 
                       # Rounded up to the next integer
     b = a*a - N
@@ -28,30 +32,22 @@ def FermatFactor(N):
         a = a+1
         b = a*a - N
         c = floor(sqrt(b)) 
-
+     
+    #FermatFactor(a-sqrt(b))
+    #FermatFactor(a+sqrt(b))
     # Return the two factors of N
     return (a - sqrt(b), a + sqrt(b)) 
 
-def least_common_multiple(num):
-    for i in range (2, (int)(num**0.5)+1):
-        if num % i == 0: 
-            return i
-    return 1
-
-'''Using Brute Force. This method uses an array to store
-all the prime factors and returns the array
-def prime_factors(N):
-    toFactor = least_common_multiple(N)
-
-    while toFactor != 1:
-        N = N/toFactor
-        toFactor = least_common_multiple(N)
-'''
+def isPrime(num):
+    for i in range(2,floor(sqrt(num))+1):
+        if num % i == 0:
+            return False
+    return True
 
 def main():
         val = float(raw_input("Enter a number to factorize "))
         #print "%d %d\n" % FermatFactor(val)
-        print "%d\n" % least_common_multiple(val)
+        FermatFactor(val)
 
 if __name__== "__main__":
     main()
