@@ -14,9 +14,11 @@ from math import ceil,floor,sqrt
     and using Fermat's Factorization Algorithm
     Try to find the largest prime factors of the given
     number N '''
+
 # Fermat's Method:
 # N = a^2 - b^2
 # N should be an odd number
+# http://en.wikipedia.org/wiki/Fermat%27s_factorization_method
 def FermatFactor(N):
     if N == 1:
         return N
