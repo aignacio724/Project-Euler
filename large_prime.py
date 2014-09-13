@@ -18,9 +18,8 @@ from math import ceil,floor,sqrt
 # N = a^2 - b^2
 # N should be an odd number
 def FermatFactor(N):
-    #print N
-    #if N == 1:
-    #    return N
+    if N == 1:
+        return N
     
     a = ceil(sqrt(N)) # Get the Square root of N 
                       # Rounded up to the next integer
@@ -33,21 +32,16 @@ def FermatFactor(N):
         b = a*a - N
         c = floor(sqrt(b)) 
      
-    #FermatFactor(a-sqrt(b))
-    #FermatFactor(a+sqrt(b))
-    # Return the two factors of N
-    return (a - sqrt(b), a + sqrt(b)) 
-
-def isPrime(num):
-    for i in range(2,floor(sqrt(num))+1):
-        if num % i == 0:
-            return False
-    return True
+    if (a-sqrt(b) != 1):
+        FermatFactor(a+sqrt(b))
+    print int(N)
+    FermatFactor(a-sqrt(b))
+    #return (a - sqrt(b), a + sqrt(b)) 
 
 def main():
         val = float(raw_input("Enter a number to factorize "))
-        print "%d %d\n" % FermatFactor(val)
-        #FermatFactor(val)
+        #print "%d %d\n" % FermatFactor(val)
+        FermatFactor(val)
 
 if __name__== "__main__":
     main()
